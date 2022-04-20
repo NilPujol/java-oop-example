@@ -30,4 +30,7 @@ class Reader {
   public void giveBook(Book book) {
     this.borrowedBooks.remove(book);
   }
+  public String toString() {
+    return name;
+  }
 }
