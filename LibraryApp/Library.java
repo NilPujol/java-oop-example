@@ -6,7 +6,10 @@ class Library {
   public ArrayList<Book> books = new ArrayList<Book>();
   public ArrayList<Reader> members = new ArrayList<Reader>();
 
-  public void addMember(Reader member) {
+  public void addMember(Reader member) throws Exception {
+    if (existsMemberWithId(member.getId())) {
+      throw new Exception("Duplicated member Id");
+    }
     this.members.add(member);
   }
 
@@ -58,5 +61,13 @@ class Library {
       }
     }
     return null;
+  }
+  private boolean existsMemberWithId(String id) {
+    Reader memberWithSameId = members.stream()
+      .filter(currentMember -> currentMember.getId().equals(id))
+      .findAny()
+      .orElse(null);
+
+    return (memberWithSameId != null);
   }
 }
