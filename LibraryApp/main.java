@@ -7,7 +7,7 @@ class Main {
   static Scanner scan = new Scanner(System.in);
   static Library library = new Library();
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
     initLibraryData();
 
     String isContinue = "y";
@@ -97,7 +97,7 @@ class Main {
     }
   }
 
-  public static void addMember() {
+  public static void addMember() throws Exception {
     Reader member = new Reader();
 
     System.out.print("id : ");
